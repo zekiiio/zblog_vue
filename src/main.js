@@ -15,11 +15,17 @@ Vue.use(MyHttpServer);
 
 Vue.config.productionTip = false;
 
+//导入时间插件
 import moment from "moment";
 //fmtdate全局过滤器 - 处理日期
 Vue.filter('fmtdate',(v)=>{
   return moment(v).format('YYYY-MM-DD')
 })
+
+//导入markdwon插件
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+Vue.use(mavonEditor)
 
 /* eslint-disable no-new */
 new Vue({

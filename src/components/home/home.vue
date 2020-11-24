@@ -7,10 +7,8 @@
         </el-col>
         <el-col :span="10">
           <el-menu
-            :default-active="activeIndex2"
             class="el-menu-demo"
             mode="horizontal"
-            @select="handleSelect"
             background-color="lightblue"
             text-color="#fff"
             active-text-color="#ffd04b">
@@ -45,9 +43,7 @@
       <el-aside width="250px">
         <el-menu
           :router="true"
-          unique-opened="true"
-          @open="handleOpen"
-          @close="handleClose"
+          :unique-opened="true"
           background-color="lightsteelblue"
           text-color="#fff"
           active-text-color="#ffd04b">
@@ -115,6 +111,11 @@
           this.$message.success('Sign Out Successfully')
           //跳转登录页面
           this.$router.push({name:'login'})
+        }
+      },
+      data(){
+        return{
+          searchData:''
         }
       }
     }
