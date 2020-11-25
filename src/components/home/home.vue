@@ -76,7 +76,7 @@
               <span class="submenu-1">Blog Edit</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="blogs">
+              <el-menu-item @click="onBlogEdit">
                 <i class="el-icon-folder"></i>
                 <span class="submenu-2">Blog List</span>
               </el-menu-item>
@@ -111,6 +111,9 @@
           this.$message.success('Sign Out Successfully')
           //跳转登录页面
           this.$router.push({name:'login'})
+        },
+        onBlogEdit(){
+          this.$router.push({name:'blogs'})
         }
       },
       data(){

@@ -169,10 +169,9 @@
           var res
           //搜索+分页
           if(this.query===''){
-            res = await this.$http.get(`http://localhost:18081/`+`blogs?pagenum=${this.pagenum}&pagesize=${this.pagesize}`)
+            res = await this.$http.get(`blogs?pagenum=${this.pagenum}&pagesize=${this.pagesize}`)
           }else{
-            res = await this.$http.get(`http://localhost:18081/`+
-              `blogs?query=${this.query}&pagenum=${this.pagenum}&pagesize=${this.pagesize}`)
+            res = await this.$http.get(`blogs?query=${this.query}&pagenum=${this.pagenum}&pagesize=${this.pagesize}`)
           }
           //获取所有
           /*const res = await this.$http.get('blogs')*/
@@ -206,7 +205,7 @@
         async addBlog(){
           //2.关闭对话框
           this.dialogFormVisibleAdd = false
-          const res = await this.$http.post(`http://localhost:18081/`+'blogs',this.addForm)
+          const res = await this.$http.post('blogs',this.addForm)
           const {code, message} = res.data
           if(code === 20000){
             //1.提示成功
@@ -226,7 +225,7 @@
             type: 'warning'
           }).then(async ()=>{
             //发送删除请求，传用户id
-            const res = await this.$http.delete(`http://localhost:18081/`+`blogs/${blogId}`)
+            const res = await this.$http.delete(`blogs/${blogId}`)
             if(res.data.code===20000){
               this.pagenum = 1
               //更新视图
